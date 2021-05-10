@@ -39,7 +39,27 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	return nil
 
 }
-// 判断一个链表是否
-func hasCycle(head *ListNode) bool {
+
+func getIntersectionNodeII(headA, headB *ListNode) *ListNode {
+	if headA == nil || headB == nil {
+		return nil
+	}
+	a := headA
+	b := headB
+
+	for a != b {
+		if a == nil {
+			a = headB
+		} else {
+			a = a.Next
+		}
+		if b == nil {
+			b = headA
+		} else {
+			b = b.Next
+		}
+	}
+	return a
 
 }
+
