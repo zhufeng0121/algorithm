@@ -1,8 +1,8 @@
 /**
  leetcode 67 Add Binary
 
- Given two binary strings a and b,
- return their sum as a binary string.
+ Given two BinarySearch strings a and b,
+ return their sum as a BinarySearch string.
 
  */
 

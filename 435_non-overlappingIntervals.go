@@ -12,7 +12,7 @@ import (
 	"sort"
 )
 
-// greedy algorithm  按照区间的右边界大小进行排序
+// GreedyAlgorithm algorithm  按照区间的右边界大小进行排序
 func eraseOverlapIntervals(intervals [][]int) int {
 	if len(intervals) == 0 || len(intervals) == 1 {
 		return 0

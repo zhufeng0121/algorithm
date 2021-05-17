@@ -14,7 +14,7 @@
 package main
 
 import "sort"
-// greedy algorithm
+// GreedyAlgorithm algorithm
 func findContentChildren(g []int, s []int) int {
 	result := 0
 	sort.Ints(g)

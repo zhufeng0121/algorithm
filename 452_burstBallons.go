@@ -17,7 +17,7 @@
 
 */
 package main
-//greedy algorithm  求重叠区间
+//GreedyAlgorithm algorithm  求重叠区间
 func findMinArrowShots(points [][]int) int {
 	//TODO:
 	return 1

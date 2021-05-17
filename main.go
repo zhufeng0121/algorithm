@@ -4,11 +4,9 @@ import (
 	"fmt"
 	"net"
 	"net/http"
-	"reflect"
 	"sync"
 	"time"
 	"unicode/utf8"
-	"unsafe"
 )
 var wg sync.WaitGroup
 
@@ -90,19 +88,20 @@ func main() {
 	//fmt.Println(i)
 	//s := []byte{0xe4, 0xbd, 0xa0}
 	//fmt.Printf("char is %s", string(s))
-	s := "hello, world"
-	s1 := "hello, world"
-	s2 := "hello, world"[7:]
-	fmt.Printf("%d \n", (*reflect.StringHeader)(unsafe.Pointer(&s)).Data) // 17598361
-	fmt.Printf("%d \n", (*reflect.StringHeader)(unsafe.Pointer(&s1)).Data) // 17598361
-	fmt.Printf("%d \n", (*reflect.StringHeader)(unsafe.Pointer(&s2)).Data) // 17598368
+	//s := "hello, world"
+	//s1 := "hello, world"
+	//s2 := "hello, world"[7:]
+	//fmt.Printf("%d \n", (*reflect.StringHeader)(unsafe.Pointer(&s)).Data) // 17598361
+	//fmt.Printf("%d \n", (*reflect.StringHeader)(unsafe.Pointer(&s1)).Data) // 17598361
+	//fmt.Printf("%d \n", (*reflect.StringHeader)(unsafe.Pointer(&s2)).Data) // 17598368
+	//
+	//for index, char := range "你好" {
+	//	fmt.Printf("start at %d, Unicode = %U, char = %c\n", index, char, char)
+	//}
+	//fmt.Println(s[0],s[7])
 
-	for index, char := range "你好" {
-		fmt.Printf("start at %d, Unicode = %U, char = %c\n", index, char, char)
-	}
-	fmt.Println(s[0],s[7])
-	http.NewRequest()
-
+	arr := []int{24,69,100,99,79,78,67,36,26,19}
+	fmt.Println(peakIndexInMountainArray(arr))
 
 }
 
@@ -162,6 +161,25 @@ func generateSlice() {
 func getUnicode() {
 	data := "♥"
 	fmt.Println(utf8.RuneCountInString(data))
+}
+func peakIndexInMountainArray(arr []int) int {
+	start, end := 0, len(arr) - 1
+	if len(arr) < 3 {
+		return -1
+	}
+	for start <= end {
+		mid := start + (end - start) >> 1
+		// 注意条件不要写错，这个题太简单了
+		if (arr[mid] > arr[mid -1]) && (arr[mid] > arr[mid + 1]) {
+			return mid
+		} else if arr[mid] < arr[mid + 1] {
+			start = mid + 1
+		} else if arr[mid] > arr[mid -1] {
+			end = mid - 1
+		}
+	}
+	return -1
+
 }
 
 
