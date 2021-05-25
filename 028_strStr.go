@@ -45,5 +45,7 @@ func strStr(haystack string, needle string) int {
 }
 
 //BF算法的另一种写法 ： 这种写法和书上见到的比较相同，采用回退
-
-func
+func strStrII(haystack string, needle string) int {
+	//TODO:
+	return -1
+}
