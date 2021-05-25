@@ -6,7 +6,12 @@
  linked lists have no intersection at all, return null.
 
  */
-package main
+package LinkedList
+
+type ListNode struct {
+	val int
+	Next *ListNode
+}
 
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	if headA == nil || headB == nil {

@@ -8,18 +8,9 @@
 package main
 
 //Easy: 经典题 ： 链表反转
+// 可以采用递归的方法，也可以采用头插法
+
 func reverseList(head *ListNode) *ListNode {
-	if head == nil || head.Next == nil {
-		return head
-	}
-	cur, temp := head, head
-	for cur.Next != nil {
-		temp = cur.Next
-		cur.Next = cur.Next.Next
-		temp.Next = cur
-
-	}
-
-
-
+	//TODO:
+	return nil
 }

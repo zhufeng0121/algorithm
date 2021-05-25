@@ -11,29 +11,33 @@
  */
 package main
 
-func rotate(matrix [][]int)  {
-	width := len(matrix)
-	for width > 1 {
-		temp := make([]int,width)
-		for i := 0;i < width;i++ {
-			temp[i] = matrix[0][i]
-		}
-		for i := width -1 ;i >= 0 ;i -- {
-			matrix[0][i] = matrix[width -1 -i][0]
-		}
-		for i := width -1 ;i >= 0 ;i -- {
-			matrix[width - 1 - i][0] = matrix[width - 1][width - 1 - i]
-		}
-		for i := width -1 ;i >= 0 ;i -- {
-			matrix[width -1][width -1 - i] = matrix[i][width -1]
-		}
-		for i := width -1 ;i >= 0 ;i -- {
-			matrix[i][width -1] = temp[i]
-		}
+//这种题的做法就是考循环，还是要熟练
 
-		width = width - 2
+//最好是一圈一圈的旋转，写一个圈旋转的函数，然后再主函数中调用
+func rotate(matrix [][]int)  {
+	top, bottom := 0, len(matrix) - 1
+	left, right := 0, len(matrix[0]) - 1
+	for top < bottom {
+		rotateLayer(matrix,top,left,bottom,right)
+		top++
+		left++
+		bottom--
+		right--
 	}
 
+
+}
+//只需要开辟一个tmp的临时数组就可以了
+func rotateLayer(matrix [][]int, top int, left int, bottom int,right int) {
+	tmp, times := 0, right - left
+	for i := 0;i < times;i++ {
+		tmp = matrix[top][left + i]
+		matrix[top][left + i] = matrix[bottom - i][left]
+		matrix[bottom -i][left] = matrix[bottom][right -i]
+		matrix[bottom][right-i] = matrix[top +i][right]
+		matrix[top + i][right] = tmp
+
+	}
 }
 
 
