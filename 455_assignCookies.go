@@ -15,6 +15,7 @@ package main
 
 import "sort"
 // GreedyAlgorithm algorithm
+//对 饼干大小和 孩子的饿程度进行排序
 func findContentChildren(g []int, s []int) int {
 	result := 0
 	sort.Ints(g)

@@ -13,6 +13,9 @@ import (
 )
 
 // GreedyAlgorithm algorithm  按照区间的右边界大小进行排序
+
+//在选择要保留区间时,区间的结尾十分重要:选择的区间结尾越小,余留给其它区间的空间
+//就越大,就越能保留更多的区间。因此,我们采取的贪心策略为,优先保留结尾小且不相交的区间。
 func eraseOverlapIntervals(intervals [][]int) int {
 	if len(intervals) == 0 || len(intervals) == 1 {
 		return 0

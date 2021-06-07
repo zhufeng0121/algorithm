@@ -9,7 +9,7 @@
  Note that If there is such a window, it is guaranteed that there will
  always be only one unique minimum window in s.
  */
-package main
+package DoublePointers
 
 //滑动窗口的思想：
 //用i,j表示滑动窗口的左边界和右边界，通过改变i,j来扩展和收缩滑动窗口，可以想象成一个窗口在字符串上游走
