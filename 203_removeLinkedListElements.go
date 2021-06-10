@@ -7,8 +7,6 @@
  */
 package main
 
-import "go/ast"
-
 //可改进
 func removeElements(head *ListNode, val int) *ListNode {
 	if head == nil {
@@ -44,6 +42,11 @@ func removeElementsII(head *ListNode, val int) *ListNode {
 func removeElementsIV(head *ListNode, val int) *ListNode {
 	if head == nil {
 		return head
+	}
+	virtnode := &ListNode{Next: head}
+	tmp := virtnode
+	for tmp.Next != nil {
+
 	}
 	
 }

@@ -2,8 +2,5 @@ package main
 
 func main() {
 
-
-
 }
-
 
