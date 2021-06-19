@@ -7,26 +7,35 @@
  */
 package main
 
+import "strings"
+
 //double pointers
-func isPalindrome(s string) bool {
+func isPalindromeIV(s string) bool {
+	s = strings.ToLower(s)
 	i, j := 0, len(s) -1
 	//
 	for i < j {
 		//如果s[i]既不是大写字母，也不是小写字母
-		for !('a' <= s[i] && s[i] <= 'z') && !('A' <= s[i] && s[i] <= 'Z') {
+		for i < j && !isalnum(s[i]) {
 			i++
 		}
-		fmt.Println(s[i])
-		for !(('a' <= s[j] && s[j] <= 'z') || ('A' <= s[j] && s[j] <= 'Z')) {
+		//时时刻刻要比较i和j的大小关系
+		for i < j && !isalnum(s[j]) {
 			j--
 		}
-		fmt.Println(s[j])
-		if s[i] != s[j] && s[i] != s[j] - 32 && s[i] != s[j] +32 {
-			return false
+		if i < j {
+			if s[i] != s[j] {
+				return false
+			}
 		}
 		i++
 		j--
 	}
 	return true
+
+}
+
+func isalnum(ch byte) bool {
+	return (ch >= 'A' && ch <= 'Z') ||(ch >= 'a' && ch <= 'z') || (ch >= '1' && ch <= '9')
 
 }

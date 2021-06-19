@@ -14,7 +14,7 @@ package main
 /**
  思路 : 用两个指针，一个指针不断向前走，若遇到不同元素，交换，相同，继续加1
  */
-func removeDuplicates(nums []int) int {
+func removeDuplicatesI(nums []int) int {
 	if len(nums) == 0 {
 		return 0
 	}

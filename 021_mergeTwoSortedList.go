@@ -10,7 +10,7 @@ package main
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
- *     val int
+ *     Val int
  *     Next *ListNode
  * }
  */
@@ -21,29 +21,29 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l2 == nil {
 		return l1
 	}
-	head := &ListNode{val: 0,Next: nil}
+	head := &ListNode{Val: 0,Next: nil}
 	current := head
 	for l1 != nil && l2 != nil {
-		if l1.val < l2.val {
-			current.Next = &ListNode{val: l1.val,Next: nil}
+		if l1.Val < l2.Val {
+			current.Next = &ListNode{Val: l1.Val,Next: nil}
 			l1 = l1.Next
 			current = current.Next
 		} else {
-			current.Next = &ListNode{val: l2.val,Next: nil}
+			current.Next = &ListNode{Val: l2.Val,Next: nil}
 			l2 = l2.Next
 			current = current.Next
 		}
 
 		if l1 == nil {
 			for l2 != nil {
-				current.Next = &ListNode{val: l2.val,Next: nil}
+				current.Next = &ListNode{Val: l2.Val,Next: nil}
 				l2 = l2.Next
 				current = current.Next
 			}
 		}
 		if l2 == nil {
 			for l1 != nil {
-				current.Next = &ListNode{val: l1.val,Next: nil}
+				current.Next = &ListNode{Val: l1.Val,Next: nil}
 				l1 = l1.Next
 				current = current.Next
 			}

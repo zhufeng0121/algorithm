@@ -8,7 +8,7 @@
 package main
 
 type ListNode struct {
-	val int
+	Val int
 	Next *ListNode
 }
 

@@ -23,7 +23,7 @@ func swapPairs(head *ListNode) *ListNode {
 }
 //创建虚拟头结点 交换之前的节点关系是 temp -> node1 -> node2，交换之后的节点关系要变成 temp -> node2 -> node1
 func swapPairsI(head *ListNode) *ListNode  {
-	virHead := &ListNode{val: 0,Next: head}
+	virHead := &ListNode{Val: 0,Next: head}
 	tmp := virHead
 	//这个条件yao保证tmp1后面有两个节点
 	for tmp.Next != nil && tmp.Next.Next != nil {
