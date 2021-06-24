@@ -1,20 +1,19 @@
 package main
 
-import "sync"
+import (
+	"fmt"
+	"sync"
+)
 
 func main() {
 	wg := sync.WaitGroup{}
-	wg.Add(10)
-
-	m := make(map[int]int)
-
-	for i := 0;i < 10;i++ {
-		go func() {
-			m[i] = i
+	wg.Add(100)
+	for i := 0; i < 100; i++ {
+		go func(i int) {
+			fmt.Println(i)
 			wg.Done()
-		}()
+		}(i)
 	}
 	wg.Wait()
-
 }
 

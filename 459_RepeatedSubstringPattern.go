@@ -8,31 +8,35 @@
 
 package main
 
-import "go/ast"
+import "strings"
 
-//思路：
 func repeatedSubstringPattern(s string) bool {
-	arr := []byte(s)
-	for i := 1;i < len(s);i++ {
-		tmp := circleShift(i,arr)
-		if tmp == arr {
+	for i := 1; i <= len(s)/2; i++ {
+		if len(s)%i != 0 {
+			continue
+		}
+		if substring(s, s[:i]) {
 			return true
 		}
 	}
+
 	return false
 }
-func circleShift(n int, arr []byte) []byte {
-	reverseI(arr[:n])
-	reverseI(arr[n+1:])
-	reverseI(arr)
-	return arr
 
-}
-func reverseI(arr []byte) []byte {
-	for i := 0; i < len(arr) / 2; i++ {
-		arr[i], arr[len(arr) - 1 - i] = arr[len(arr) - 1 - i], arr[i]
+func substring(s, sub string) bool {
+	if len(s) == 0 {
+		return true
 	}
+
+	if s[:len(sub)] != sub {
+		return false
+	}
+
+	return substring(s[len(sub):], sub)
 }
-func bruteforce(s string, t string) bool {
+
+
+func repeatedSubstringPatternI(s string) bool {
+	return strings.Contains(strings.Repeat(s, 2)[1:2*len(s)-1],s)
 
 }
