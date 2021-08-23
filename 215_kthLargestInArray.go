@@ -35,39 +35,41 @@ func findKthLargestByHeap(nums []int, k int) int {
 	for i := k; i < len(nums);i++ {
 		if nums[i] > nums[0] {
 			nums[0] = nums[i]
-			downAdjust(nums,0,k)
+			sink(nums,0,k)
 		}
 	}
 	return nums[0]
 
 }
-
-//下沉调整
-func downAdjust(nums []int, index int, length int) {
-	//temp := nums[index]
-	childIndex := 2 * index + 1
-	for childIndex < len(nums) {
-		//如果有右孩子，且右孩子小于左孩子的值,定位到右孩子节点
-		if childIndex + 1 < len(nums) && nums[childIndex] > nums[childIndex + 1] {
-			childIndex++
+func sink(arr []int, index int, k int) {
+	//这里的意义不仅仅在于只是为了交换而用，因为arr[index]会被重新赋值
+	temp := arr[index]
+	child := index << 1 + 1
+	for child < k {
+		if child + 1 < k && arr[child] > arr[child + 1] {
+			child++
 		}
-		if nums[index] < nums[childIndex] {
+		//这里的比较一定要用temp
+		if temp <= arr[child] {
 			break
 		}
-		nums[index],nums[childIndex] = nums[childIndex],nums[index]
-		index = childIndex
-		childIndex = 2 * index + 1
+		arr[index] = arr[child]
+		index = child
+		child = child << 1 + 1
 	}
-
+	arr[index] = temp
 }
+
 
 func buildHeap(nums []int, length int) {
 	//后半部分属于堆的叶子节点，不需要进行下沉操作
-	for i := (length - 2) / 2; i >= 0; i-- {
-		downAdjust(nums,i,length)
+	for i := (length - 2) / 2 ; i >= 0; i-- {
+		sink(nums,i,length)
 	}
 
 }
+
+//
 
 
 

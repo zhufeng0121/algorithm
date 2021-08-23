@@ -1,5 +1,5 @@
 /**
- leetcode 2 add two number
+ leetcode 002 add two number
 
  */
 package main
@@ -14,6 +14,7 @@ func addTwoNumbers(l1 *ListNode2,l2 *ListNode2) *ListNode2 {
 	if l1 == nil  || l2 == nil {
 		return nil
 	}
+	//增加虚拟头结点
 	head := &ListNode2{Val:0,Next:nil}
 	current := head
 	carry := 0

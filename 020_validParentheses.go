@@ -21,6 +21,7 @@ func isValid(s string) bool {
 			(v == '}') && len(stack) > 0 && stack[len(stack) - 1] == '{' {
 			stack = stack[:len(stack) - 1]
 		} else {
+			//要处理那种没有左和右的情况
 			return false
 		}
 

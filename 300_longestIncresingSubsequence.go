@@ -11,27 +11,8 @@
  */
 package main
 
+//最长递增子序列
 func lengthOfLIS(nums []int) int {
-	if len(nums) == 1 {
-		return 1
-	}
-	dp := make([]int,len(nums))
-	dp[0] = 1
-	max := 0
-
-	//dp[i]代表 以i 元素结尾的最长递增子序列的长度
-	for i := 1;i < len(nums);i++ {
-		for j := i-1 ; j >= 0;j-- {
-			if nums[i] <nums[j] {
-			}
-		}
-	}
-	return dp[len(nums) -1]
-
-}
-
-//
-func lengthOfLISII(nums []int) int {
 	dp := make([]int, len(nums))
 	for i := 0; i < len(nums); i++ {
 		dp[i] = 1

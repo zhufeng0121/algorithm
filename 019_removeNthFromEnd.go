@@ -36,11 +36,13 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	return newHead.Next
 }
 
+
+//这种写法没有改好，还是得继续测试
 func removeNthFromEnd2(head *ListNode, n int) *ListNode {
 	if head == nil || n < 1 {
 		return head
 	}
-	cur := head
+	cur := head.Next
 	for cur != nil {
 		n--
 		cur = cur.Next

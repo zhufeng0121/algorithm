@@ -32,7 +32,7 @@ func mergeII(nums1 []int, m int, nums2 []int, n int)  {
 		}
 		index--
 	}
-	if n > 0 {
+	for n > 0 {
 		nums1[index] = nums2[n-1]
 		n--
 		index--
